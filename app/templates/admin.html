@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="features">
+    <h2>Users</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">avatar</th>
+            <th scope="col">email</th>
+            <th scope="col">role</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <div class="col">
+        <tr>
+        <td></td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role}}</td>
+        </tr></div>
+    {% endfor %}
+    </tbody>
+    </table>
+
+</div>
+{% endblock %}

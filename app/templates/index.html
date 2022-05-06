@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="features">
+  <img src="{{ url_for('static', filename='app/img/мужик.jpg') }}">
+  <h1>Tired of the heavy choice of suitable headphones? Tangled in wires?</h1>
+  <h2>Then our catalog of wireless headphones will help you.</h2>
+  <p></p>    
+  <p><h3>With them you can:</h3>
+      <ul>
+          <li>Forget the pain of untangling wires</li>
+          <li>Listen to music, a book, or an audio message</li>
+          <li>Answer a call without taking out your phone</li>
+      </ul> 
+      </p>
+    
+    
+    <div class="container">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">image</th>
+    <h1>{% if current_user.is_anonymous %}Welcom, guest!{% else %}Welcom, {{ current_user.email }}!{% endif %}</h1>
+    <img src="{{ url_for('static', filename='Beats_solo_pro.jpg')}}"/>
+    <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Brand</th>
+          <th scope="col">Model</th>
+          <th scope="col">Type</th>
+          <th scope="col">Color</th>
+          <th scope="col">Price(USD)</th>
+          <th scope="col">Life time(h)</th>
+          <th scope="col">Max power(Hz)</th>
+          <th scope="col">Weight(g)</th>
+          <th scope="col">Impedance(Ohm)</th>
+          <th scope="col">Sensitivity(dB)</th>
+          <th scope="col">Case life time(h)</th>
+          <th scope="col">Noise reduction</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for headphone in headphones %}
+
+        <div class="col">
+        <tr>
+          <td><img src="{{ url_for('static', filename=headphone.image.file_name) }}"></td
+        <tr>
+
+        <td>{{ headphone.brand.name }}</td>
+        <td>{{ headphone.model_name }}</td>
+        <td>{{ headphone.type.name }}</td>
+        <td>{{ headphone.color.name }}</td>
+        <td>{{ headphone.price }}</td>
+        <td>{{ headphone.lifetime }}</td>
+        <td>{{ headphone.max_power }}</td>
+        <td>{{ headphone.weight }}</td>
+        <td>{{ headphone.impedance }}</td>
+        <td>{{ headphone.sensitivity }}</td>
+        <td>{{ headphone.lifetime_case }}</td>
+        <td>{{ headphone.is_nc}}</td>
+
+        </tr></div>
+    {% endfor %}
+    </tbody>
+    </table></div> 
+    </div>
+
+   {% endblock %}
+
